@@ -5,6 +5,7 @@ First, we capture file names of the targeted folder.
 And then import files by PROC IMPORT, if all files successfully import then the works are done.
 But if have any problems, we used the log.txt to adjust SAS provided data infile code.
 The log.txt is messy, so we clean it using python.
+
 ***SAS***
 ```
 filename indata pipe 'dir D:\C678/b';
