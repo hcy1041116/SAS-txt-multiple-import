@@ -6,6 +6,7 @@ And then import files by PROC IMPORT, if all files successfully import then the 
 But if have any problems, we used the log.txt to adjust SAS provided data infile code.
 The log.txt is messy, so we clean it using python.
 ***SAS***
+```
 filename indata pipe 'dir D:\C678/b';
 data file_list;
  length fname $32;
@@ -56,9 +57,11 @@ PROC IMPORT OUT= WORK.test1
      GETNAMES=YES;
      DATAROW=2; 
 RUN;
+```
 
 
 ***PYTHON***
+```
 import re
 
 # 打開並讀取.txt檔案，指定使用 'latin-1' 編碼方式
@@ -85,3 +88,4 @@ with open(output_file_path, 'w') as output_file:
         formatted_match = '\n'.join([line.split(None, 1)[1] if len(line.split(None, 1)) > 1 else line for line in match_lines])
         result = 'DATA '+formatted_match+'\n'
         output_file.write(result+'\n')
+```
